@@ -1,16 +1,11 @@
-// Importar contratos relevantes de OpenZeppelin
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/crowdsale/Crowdsale.sol";
 
-// Contrato de Crowdsale refundable
-contract RefundableCrowdsale is Crowdsale {
-    // Variable para la meta de financiamiento
+contract RefundablePostDeliveryCrowdsale is Crowdsale {
     uint256 public fundingGoal;
-
-    // Mapping para llevar un registro de los aportes de los inversores
     mapping(address => uint256) public contributions;
-
-    // Evento que se emite cuando se reembolsa a un inversor
+    mapping(address => uint256) public tokens;
+    bool public productDelivered = false;
     event Refund(address investor, uint256 amount);
 
     constructor(
@@ -30,6 +25,10 @@ contract RefundableCrowdsale is Crowdsale {
         contributions[_beneficiary] = contributions[_beneficiary].add(_weiAmount);
     }
 
+    function _processPurchase(address _beneficiary, uint256 _tokenAmount) internal {
+        tokens[_beneficiary] = tokens[_beneficiary].add(_tokenAmount);
+    }
+
     function finalize() public {
         require(!super.isFinalized());
         require(goalReached());
@@ -47,5 +46,17 @@ contract RefundableCrowdsale is Crowdsale {
         _investor.transfer(refund);
         contributions[_investor] = 0;
         emit Refund(_investor, refund);
+    }
+
+    function deliverProduct() public {
+        require(goalReached() && !productDelivered);
+        productDelivered = true;
+    }
+
+    function claimTokens(address payable _investor) public {
+        require(productDelivered);
+        uint256 tokenAmount = tokens[_investor];
+        tokens[_investor] = 0;
+        _deliverTokens(_investor, tokenAmount);
     }
 }
