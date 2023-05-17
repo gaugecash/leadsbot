@@ -10,11 +10,15 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 
-places = [ 'Miami', 'Florida', 'San Francisco', 'Toronto', 'Paris', 'London', 'Amsterdam', 'Dublin', 'Sydney', 'Melbourne', 'Tokyo', 'Osaka', 'Seoul', 'Berlin', 'Hamburg', 'Vienna', 'Zurich', 'Stockholm', 'Copenhagen']
+places = ['Toronto', 'Paris', 'London', 'Amsterdam', 'Dublin', 'Sydney', 'Melbourne', 'Tokyo', 'Osaka', 'Seoul', 'Berlin', 'Hamburg', 'Vienna', 'Zurich', 'Stockholm', 'Copenhagen']
+#hashtags = ['cryptoexchange', 'cryptomining', 'smartcontracts', 'digitalcurrency', 'cryptowallet', 'cryptonews', 'hodl', 'coinbase', 'binance', 'bitcoincash', 'dogecoin', 'litecoin', 'staking', 'defi']
+
+# places = ['boston', 'chicago', 'New York', 'Los Angeles', 'Chicago', 'San Francisco', 'Toronto', 'Paris', 'London', 'Amsterdam', 'Dublin', 'Sydney', 'Melbourne', 'Tokyo', 'Osaka', 'Seoul', 'Berlin', 'Hamburg', 'Vienna', 'Zurich', 'Stockholm', 'Copenhagen']
+
 for place in places:
-    #hashtags = ['Bitcoin', 'Ethereum', 'Smart contracts', 'Crypto', 'Altcoin', 'Cryptocurrency', 'DAO', 'DEFI', 'NFT', 'USDT','Blockchain', 'Binance', 'Digital asset']
-    hashtags = ['Bitcoin', 'Ethereum', 'Smart contracts', 'Crypto', 'Altcoin', 'Cryptocurrency', 'DAO', 'DEFI', 'NFT', 'USDT', 'BTC', 'ETH', ' \"BNB\" ','Blockchain', 'Binance', 'Digital asset']
-    driver = webdriver.Firefox()
+    #hashtags =  ['coinbase', 'bitcoincash', 'dogecoin', 'litecoin', 'staking', 'cryptomining', 'Bitcoin', 'Ethereum', 'digitalcurrency', 'Crypto', 'Altcoin', 'cryptowallet', 'cryptonews', 'hodl', 'Cryptocurrency', 'DEFI', 'NFT', 'USDT', 'BTC', 'ETH', ' \"BNB\" ','Blockchain', 'Binance', 'Stablecoin','\"DEX\"', 'DigitalAsset']
+    hashtags =  ['coinbase', 'bitcoincash', 'dogecoin', 'litecoin', 'staking', 'cryptomining', 'Bitcoin', 'Ethereum', 'digitalcurrency', 'Crypto', 'Altcoin', 'cryptowallet', 'cryptonews', 'hodl', 'Cryptocurrency', 'DEFI', 'NFT', 'USDT', 'BTC', 'ETH', ' \"BNB\" ','Blockchain', 'Binance', 'Stablecoin','\"DEX\"', 'DigitalAsset']
+    driver = webdriver.Firefox(executable_path= r'/Users/j.reuman/Desktop/Dev/GaugeCash/GeckoDriver/geckodriver')
 
     # Ir a Google
     driver.get("https://www.google.com")
@@ -29,7 +33,7 @@ for place in places:
         search = driver.find_element(by=By.CSS_SELECTOR, value="textarea.gLFyf")
         # Entrar el topic a buscar
         #Generar url de manera programatica 
-        query = place + ' '  + tag + ' \"@gmail.com\" '
+        query = place + ' '  + tag + ' \"@gmail.com\" site:instagram.com'
         search.clear()
         search.send_keys(query)
 
@@ -71,7 +75,7 @@ for place in places:
                 
                 # Crear un DataFrame con los resultados
                 df = pd.DataFrame(results)
-                df.to_csv('results-may-15.csv', index=False, mode="a", header=False)
+                df.to_csv('results-IG-05-17', index=False, mode="a", header=False)
 
                 # Ir a la siguiente página
                 try:
