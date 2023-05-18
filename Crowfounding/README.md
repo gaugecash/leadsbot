@@ -26,3 +26,22 @@ Este contrato utiliza la biblioteca OpenZeppelin para proporcionar implementacio
 
 ### Consideraciones de seguridad
 Este es un ejemplo simplificado de cómo podría ser un contrato de crowdfunding refundable. Antes de utilizar este contrato en un entorno de producción, se deben considerar muchos otros aspectos, incluyendo una auditoría de seguridad completa, pruebas exhaustivas y posibles implicaciones legales.
+
+## Descripción final del código:
+
+Este código combina los contratos Crowdsale, TimedCrowdsale, RefundableCrowdsale, PostDeliveryCrowdsale, ReentrancyGuard y Pausable de OpenZeppelin para implementar un Crowdsale con la lógica adicional que deseas.
+
+El contrato MyTokenCrowdsale es el contrato principal que hereda de los contratos mencionados.
+
+Las variables _rate y _wallet determinan la tasa de conversión y la dirección donde se recopilan los fondos respectivamente.
+
+La función buyTokens se modifica para incluir la lógica de seguimiento de la meta y la distribución de tokens.
+
+La función _processPurchase se modifica para realizar un seguimiento del cumplimiento de la meta.
+
+La función _finalization se modifica para distribuir los tokens si se alcanza la meta y habilitar los reembolsos si no se alcanza.
+
+La función _forwardFunds se modifica para enviar los fondos al contrato de reembolso si no se alcanza la meta.
+La función _preValidatePurchase se modifica para verificar si la compra excedería la meta.
+
+Recuerda que este es solo un ejemplo para ilustrar cómo combinar los contratos y no incluye todas las funcionalidades adicionales que puedas necesitar. Asegúrate de adaptarlo a tus necesidades y realizar las pruebas adecuadas antes de desplegarlo en una red blockchain.
