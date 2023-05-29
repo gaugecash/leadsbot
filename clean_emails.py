@@ -23,7 +23,7 @@ def eliminar_correos_duplicados(archivo_entrada, archivo_salida):
     print(f"Se han eliminado los correos duplicados y se ha guardado el resultado en '{archivo_salida}'.")
 
 # Uso del script
-archivo_entrada = "results-join.csv"  
+archivo_entrada = "leads.csv"  
 archivo_salida = "leads.csv" 
 
 eliminar_correos_duplicados(archivo_entrada, archivo_salida)
