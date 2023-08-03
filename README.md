@@ -32,10 +32,8 @@ driver = webdriver.Firefox(executable_path= r'') ## Add your GeckoDriver path.
 You can run the script using Python from the command line. Make sure you're in the correct directory containing the script and then use the following command:
 
 ```shell
-python script_name.py
+python bot.py
 ```
-
-Replace "script_name.py" with whatever name you've given to the script.
 
 ## Output
 The script will save all found email addresses in a CSV file named "results-IG-01". Each email address will be on a new line. 
