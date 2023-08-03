@@ -19,7 +19,7 @@ for place in places:
     hashtags = ['Bitcoin', 'Ethereum', 'Blockchain', 'Cryptocurrency', 'Crypto', 'BTC', 'ETH', 'DeFi', 'CryptoTrading', 'HODL', 'Altcoin', 'CryptoNews', 'Cryptowallet', 'BitcoinMining', 'BitcoinPrice', 'EthereumPrice', 'SmartContract', 'NFT', 'Stablecoin', 'DApp', 'ICO', 'TokenSale', 'Binance', 'Coinbase', 'Ripple', 'XRP', 'Litecoin', 'Dogecoin']
 
     # Initialize WebDriver with path to GeckoDriver
-    driver = webdriver.Firefox(executable_path= r'/Users/j.reuman/Desktop/Dev/GaugeCash/GeckoDriver/geckodriver')
+    driver = webdriver.Firefox(executable_path= r'') #Your GeckoDriver Path
 
     # Navigate to Google
     driver.get("https://www.google.com")
