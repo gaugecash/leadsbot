@@ -39,6 +39,8 @@ python bot.py
 The script will save all found email addresses in a CSV file named "results-IG-01". Each email address will be on a new line. 
 
 ## Usage Notes
-The script may take a long time to run, as it makes random pauses to avoid being blocked by Google. Also, if it encounters a CAPTCHA, the script will pause for 30 seconds before continuing. If you see the script pausing for a long time, check if Google is asking for a CAPTCHA.
+The script may take a long time to run, as it makes random pauses to avoid being blocked by Google. Also, if it encounters a CAPTCHA, the script will pause for 30 seconds before continuing. During this pause, you are expected to manually solve the CAPTCHA for the script to continue. If you see the script pausing for a long time, check if Google is asking for a CAPTCHA.
+
+To mitigate the risk of your IP being blocked by Google, it is recommended to use a Virtual Private Network (VPN). 
 
 Finally, please note that this script may violate Google's terms of service, and its use may result in your IP being blocked by Google. Additionally, the use of email addresses collected in this way may violate privacy and spam laws, so be sure to use the collected data responsibly and legally.
